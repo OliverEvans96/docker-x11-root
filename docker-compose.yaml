@@ -1,0 +1,15 @@
+version: '2.3'
+services:
+    x11-root:
+        build:
+            context: .
+        tty: true
+        stdin_open: true
+        user: oliver
+        environment:
+            - DISPLAY
+            - XAUTHORITY=/tmp/.docker.xauth
+        volumes:
+            - /tmp/.X11-unix:/tmp/.X11-unix:rw
+            - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+            - /home/oliver/academic/research/droplet/analysis:/mnt/analysis
